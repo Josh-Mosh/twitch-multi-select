@@ -1,19 +1,6 @@
-// When the extension is installed or upgraded ...
-chrome.runtime.onInstalled.addListener(function() {
-  // Replace all rules ...
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-    // With a new rule ...
-    chrome.declarativeContent.onPageChanged.addRules([
-      {
-        // That fires when a page's URL contains a 'g' ...
-        conditions: [
-          new chrome.declarativeContent.PageStateMatcher({
-            pageUrl: { urlContains: 'twitch.tv/directory/following' },
-          })
-        ],
-        // And shows the extension's page action.
-        actions: [ new chrome.declarativeContent.ShowPageAction() ]
-      }
-    ]);
+chrome.browserAction.onClicked.addListener(function(tab) {
+  console.log('tabl');
+  chrome.tabs.executeScript(null, {file: "vendor/jquery-3.3.1.min.js"}, function() {
+    chrome.tabs.executeScript(null, {file: "action.js"});
   });
 });

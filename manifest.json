@@ -6,13 +6,17 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "page_action" :
-  {
-    "default_icon" : "images/extension-icon.png",
-    "default_title" : "Twitch Following"
+  "browser_action": {
+      "name": "Click to select stuff"
   },
+  "content_scripts": [ {
+    "matches": ["https://*.twitch.tv/directory/following/*"],
+    "js": [ "vendor/jquery-3.3.1.min.js"],
+    "css": ["style.css"]
+  }],
   "permissions" : [
-    "declarativeContent"
+    "declarativeContent",
+    "activeTab"
   ],
   "icons" : {
     "128" : "images/extension-icon.png"
