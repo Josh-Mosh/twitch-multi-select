@@ -1,0 +1,26 @@
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(89, 74, 142, 0.7);
+  z-index: 1010;
+}
+
+.stream-overlay {
+  cursor: pointer;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 1030
+}
+
+.stream-overlay:hover {
+  background-color: rgba(216, 216, 216, 0.4);
+}
+
+.selectable-stream {
+  position: relative;
+  z-index: 1020;
+}
