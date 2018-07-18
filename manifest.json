@@ -8,14 +8,14 @@
   },
   "page_action" :
   {
-    "default_icon" : "extension-icon.png",
+    "default_icon" : "images/extension-icon.png",
     "default_title" : "Twitch Following"
   },
   "permissions" : [
     "declarativeContent"
   ],
   "icons" : {
-    "128" : "extension-icon.png"
+    "128" : "images/extension-icon.png"
   },
-  "manifest_version": 1
+  "manifest_version": 2
 }
