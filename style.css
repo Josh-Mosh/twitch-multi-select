@@ -63,12 +63,12 @@
 }
 
 .button-confirm {
-  color: white;
+  color: white !important;
   background: #3c2c4a;
 }
 
 .button-cancel {
   background: lightgray;
-  color: #444;
+  color: #444 !important;
   cursor: pointer;
 }

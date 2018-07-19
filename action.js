@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   let selecting = false,
       selectedStreams = [],
-      multiLink = '/kinggothalion';
+      multiLink = '';
   //
   // const streams = $('.live-channel-card a.tw-interactive.tw-link');
   // const streamsAlt = $('[data-a-target="preview-card-image-link"]');
@@ -40,7 +40,7 @@ $(document).ready(function() {
 
     let headingEl = '<div class="select-heading-wrapper"><h1 class="select-heading">Select Streams</h1></div>';
     let buttonsEl = '<div class="select-buttons-wrapper">' +
-                      '<a href="https://multitwitch.tv' + multiLink + '" class="button-confirm" target="_blank">Go to MultiTwitch</a>' +
+                      '<a class="button-confirm" target="_blank">Go to Multi-Stream</a>' +
                       '<a class="button-cancel">Cancel</a>' +
                     '</div>';
 
@@ -70,12 +70,18 @@ $(document).ready(function() {
         } else {
           selectedStreams.push(linkEl);
         }
+        updateMultiLink();
       });
     });
   }
 
-  // let selectedStreams = [];
   startSelecting();
+
+  function updateMultiLink() {
+    console.log(selectedStreams);
+    multiLink = selectedStreams.join('');
+    $('.button-confirm').attr('href', 'https://multistre.am' + multiLink + '/layout0');
+  }
 
   function cancelSelecting() {
     $('.overlay').remove();
