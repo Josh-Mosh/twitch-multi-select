@@ -16,6 +16,10 @@
   z-index: 1030
 }
 
+.stream-overlay.stay {
+  background-color: rgba(216, 216, 216, 0.4);
+}
+
 .stream-overlay:hover {
   background-color: rgba(216, 216, 216, 0.4);
 }
@@ -23,4 +27,48 @@
 .selectable-stream {
   position: relative;
   z-index: 1020;
+}
+
+.select-heading-wrapper, .select-buttons-wrapper {
+  color: white;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 1030;
+}
+
+.select-heading-wrapper {
+  top: 75px;
+}
+
+.select-heading {
+  text-shadow: 2px 2px 2px #2b2b2b;
+}
+
+.select-buttons-wrapper {
+  bottom: 40px;
+}
+
+.select-buttons-wrapper a {
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px #4c4c4c;
+  font-size: 24px;
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.select-buttons-wrapper a:hover {
+  color: inherit;
+}
+
+.button-confirm {
+  color: white;
+  background: #3c2c4a;
+}
+
+.button-cancel {
+  background: lightgray;
+  color: #444;
+  cursor: pointer;
 }
