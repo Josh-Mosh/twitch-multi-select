@@ -21,5 +21,8 @@
   "icons" : {
     "128" : "images/extension-icon.png"
   },
+  "web_accessible_resources": [
+    "images/*"
+  ],
   "manifest_version": 2
 }

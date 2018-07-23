@@ -48,8 +48,6 @@ $(document).ready(function() {
     $(buttonsEl).appendTo(rootEl);
 
     $.each(liveStreams, (index, stream) => {
-      // console.log($(stream), $(stream).find('[data-test-selector="preview-card-thumbnail__image-selector"]'));
-
       // throw overlay over entire page except for selectable streams
       $('<a class="stream-overlay"></a>').prependTo(stream);
 
@@ -57,11 +55,17 @@ $(document).ready(function() {
       let linkEl = $(stream).find('[data-a-target="preview-card-image-link"]').attr('href');
       // console.log(linkEl);
 
+      // add checkbox (hidden)
+      let iconSrc = chrome.extension.getURL('images/check-circle-regular.svg');
+      $(stream).append('<div class="check-wrapper"><svg aria-hidden="true" data-prefix="far" data-icon="check-circle" class="svg-inline--fa fa-check-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 48c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m140.204 130.267l-22.536-22.718c-4.667-4.705-12.265-4.736-16.97-.068L215.346 303.697l-59.792-60.277c-4.667-4.705-12.265-4.736-16.97-.069l-22.719 22.536c-4.705 4.667-4.736 12.265-.068 16.971l90.781 91.516c4.667 4.705 12.265 4.736 16.97.068l172.589-171.204c4.704-4.668 4.734-12.266.067-16.971z"></path></svg></div>');
+
       // add on click action to each stream
       $(stream).on('click', function() {
 
         // add or rmeove stay class to indicate selection
         $(stream).children('.stream-overlay').toggleClass('stay');
+
+        $(stream).children('.check-wrapper').slideToggle();
 
         // Remove or add selected stream to array
         let selectedIndex = selectedStreams.indexOf(linkEl);
@@ -88,6 +92,7 @@ $(document).ready(function() {
     $('.stream-overlay').remove();
     $('.select-heading-wrapper').remove();
     $('.select-buttons-wrapper').remove();
+    $('.check-wrapper').remove();
     $('.selectable-stream').removeClass('selectable-stream');
     selectedStreams = [];
   }
